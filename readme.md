@@ -1,7 +1,7 @@
 
 # 支持自动安装的开源项目
-- [applio ]([url](https://github.com/IAHispano/Applio))
-- fish-speech
+- applio：https://github.com/IAHispano/Applio
+- fish-speech：https://github.com/fishaudio/fish-speech
 
 # 环境要求
 适配网站：https://www.autodl.com/home
