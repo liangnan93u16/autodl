@@ -1,6 +1,8 @@
 
 
 # 环境要求
+适配网站：https://www.autodl.com/home
+
 基础镜像=>Miniconda=>conda3=>3.10(ubuntu22.04)=>Cuda版本11.8
 
 PS:只在这个环境测试过，其他的Miniconda应该也可以的。
