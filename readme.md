@@ -1,0 +1,1 @@
+wget https://raw.githubusercontent.com/liangnan93u16/AutoDLInstall/main/autoinstall && chmod +x autoinstall  && ./autoinstall 
