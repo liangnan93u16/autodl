@@ -1,4 +1,7 @@
 
+# 支持自动安装的开源项目
+- applio
+- fish-speech
 
 # 环境要求
 适配网站：https://www.autodl.com/home
@@ -14,3 +17,4 @@ wget https://raw.githubusercontent.com/liangnan93u16/AutoDLInstallScript/main/au
 1. 自动下载对应开源项目的代码
 2. 自动安装依赖环境
 3. 自动安装：torch==2.4.1 torchaudio==2.4.1
+
