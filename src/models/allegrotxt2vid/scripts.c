@@ -1,16 +1,11 @@
 #include "scripts.h"
 
-// instantir_install.sh 内容
-const char* INSTANTIR_INSTALL = 
+// allegrotxt2vid_install.sh 内容
+const char* ALLEGROTXT2VID_INSTALL = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
     ". /etc/network_turbo || true\n"
-    "\n"
-    "# Ensure script is run with bash\n"
-    "if [ -z \"$BASH_VERSION\" ]; then\n"
-    "    exec bash \"$0\" \"$@\"\n"
-    "fi\n"
     "\n"
     "# Install system dependencies\n"
     "apt-get update\n"
@@ -20,22 +15,22 @@ const char* INSTANTIR_INSTALL =
     "source $HOME/miniconda3/etc/profile.d/conda.sh || source $HOME/anaconda3/etc/profile.d/conda.sh\n"
     "\n"
     "# Create and activate conda environment\n"
-    "conda create -n instantir python=3.10 -y\n"
-    "conda activate instantir\n"
+    "conda create -n Allegro-txt2vid python=3.10 -y\n"
+    "conda activate Allegro-txt2vid\n"
     "\n"
     "# Clone repository and enter directory\n"
-    "git clone https://huggingface.co/spaces/cocktailpeanut/InstantIR instantir\n"
-    "cd instantir\n"
+    "git clone https://github.com/pinokiofactory/Allegro-txt2vid Allegro-txt2vid\n"
+    "cd Allegro-txt2vid\n"
     "\n"
     "# Install PyTorch and dependencies\n"
-    "pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121\n"
+    "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 xformers --index-url https://download.pytorch.org/whl/cu121\n"
     "\n"
     "# Install project and additional dependencies\n"
-    "pip install -r requirements.txt\n"
-    "";
+    "pip install gradio devicetorch\n"
+    "pip install -r requirements.txt";
 
-// instantir_start.sh 内容
-const char* INSTANTIR_START = 
+// allegrotxt2vid_start.sh 内容
+const char* ALLEGROTXT2VID_START = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
@@ -58,8 +53,8 @@ const char* INSTANTIR_START =
     "fi\n"
     "\n"
     "# 激活 conda 环境\n"
-    "conda activate instantir || {\n"
-    "    echo \"Error: Failed to activate conda environment 'instantir'\"\n"
+    "conda activate Allegro-txt2vid || {\n"
+    "    echo \"Error: Failed to activate conda environment 'Allegro-txt2vid'\"\n"
     "    exit 1\n"
     "}\n"
     "\n"
@@ -70,7 +65,11 @@ const char* INSTANTIR_START =
     "    DEVICE=\"cpu\"\n"
     "fi\n"
     "\n"
+    "# 进入工作目录\n"
+    "cd $HOME/Allegro-txt2vid\n"
+    "\n"
     "# 运行应用\n"
-    "cd $HOME/instantir/gradio_demo\n"
-    "python app.py --port 6006";
+    "export GRADIO_SERVER_PORT=6006\n"
+    "python gradio_app.py\n"
+    "";
 

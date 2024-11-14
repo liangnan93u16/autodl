@@ -5,7 +5,7 @@ const char* APPLIO_START =
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
-    "source /etc/network_turbo\n"
+    ". /etc/network_turbo || true\n"
     "\n"
     "# 确保 bash 环境\n"
     "if [ -z \"$BASH_VERSION\" ]; then\n"

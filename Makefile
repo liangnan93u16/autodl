@@ -12,7 +12,8 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/fish_speech/scripts.c \
        $(MODELS_DIR)/e2-f5-tts/scripts.c \
        $(MODELS_DIR)/instantir/scripts.c \
-       $(MODELS_DIR)/bolt/scripts.c
+       $(MODELS_DIR)/bolt/scripts.c \
+       $(MODELS_DIR)/allegrotxt2vid/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

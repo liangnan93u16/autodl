@@ -22,3 +22,7 @@ source /etc/network_turbo && wget https://raw.githubusercontent.com/liangnan93u1
 1. 自动下载对应开源项目的代码
 2. 自动安装依赖环境
 3. 自动安装：torch==2.4.1 torchaudio==2.4.1
+
+
+
+[![video](https://i0.hdslb.com/bfs/archive/04f2500a5bc5938062d5c386c6fc07466b772338.jpg@308w_174h)](https://www.bilibili.com/video/BV1wZU5Y3E9f/)

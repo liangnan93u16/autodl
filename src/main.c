@@ -9,6 +9,7 @@
 #include "models/e2-f5-tts/scripts.h"
 #include "models/instantir/scripts.h"
 #include "models/bolt/scripts.h"
+#include "models/allegrotxt2vid/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -31,20 +32,22 @@ char* create_temp_script(const char* content) {
 int main() {
     int choice, action;
     
+    printf("注意：仅限于学术用途，不承诺稳定性保证\n\n");
     printf("请选择要使用的模型：\n");
     printf("1. Applio\n");
     printf("2. Fish-Speech\n");
     printf("3. E2-F5-TTS\n");
     printf("4. InstantIR\n");
     printf("5. Bolt\n");
-    printf("请输入选项 (1-5): ");
+    printf("6. AllegroTxt2vid\n");
+    printf("请输入选项 (1-6): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 5) {
+    if (choice < 1 || choice > 6) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -107,6 +110,14 @@ int main() {
                 script_content = BOLT_INSTALL;
             } else if (action == 2) {
                 script_content = BOLT_START;
+            }
+            break;
+            
+        case 6: // AllegroTxt2vid
+            if (action == 1) {
+                script_content = ALLEGROTXT2VID_INSTALL;
+            } else if (action == 2) {
+                script_content = ALLEGROTXT2VID_START;
             }
             break;
     }

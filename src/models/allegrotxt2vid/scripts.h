@@ -1,0 +1,8 @@
+#ifndef ALLEGROTXT2VID_SCRIPTS_H
+#define ALLEGROTXT2VID_SCRIPTS_H
+
+// allegrotxt2vid 模块的脚本声明
+extern const char* ALLEGROTXT2VID_INSTALL;
+extern const char* ALLEGROTXT2VID_START;
+
+#endif // ALLEGROTXT2VID_SCRIPTS_H
