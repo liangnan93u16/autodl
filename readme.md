@@ -1,6 +1,8 @@
 # 支持自动安装的开源项目
 - applio：https://github.com/IAHispano/Applio
 - fish-speech：https://github.com/fishaudio/fish-speech
+- E2-F5-TTS : https://huggingface.co/spaces/cocktailpeanut/InstantIR
+- InstantIR : https://github.com/coleam00/bolt.new-any-llm
 
 # 环境要求
 适配网站：https://www.autodl.com/home

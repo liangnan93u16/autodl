@@ -5,7 +5,7 @@ const char* INSTANTIR_INSTALL =
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
-    "source /etc/network_turbo\n"
+    ". /etc/network_turbo || true\n"
     "\n"
     "# Ensure script is run with bash\n"
     "if [ -z \"$BASH_VERSION\" ]; then\n"

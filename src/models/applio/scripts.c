@@ -45,7 +45,7 @@ const char* APPLIO_INSTALL =
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
-    "source /etc/network_turbo\n"
+    ". /etc/network_turbo || true\n"
     "\n"
     "# Fix apt hash sum mismatch issues\n"
     "sudo rm -rf /var/lib/apt/lists/*\n"

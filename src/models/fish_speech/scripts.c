@@ -5,7 +5,7 @@ const char* FISH_SPEECH_INSTALL =
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
-    "source /etc/network_turbo\n"
+    ". /etc/network_turbo || true\n"
     "\n"
     "# Install system dependencies\n"
     "apt-get update\n"
