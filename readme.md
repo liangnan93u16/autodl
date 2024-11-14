@@ -11,8 +11,11 @@
 
 PS:只在这个环境测试过，其他的Miniconda应该也可以的。
 
-# 执行命令
-wget https://raw.githubusercontent.com/liangnan93u16/AutoDLInstallScript/main/auto_dl_install && chmod +x auto_dl_install && ./auto_dl_install
+# 执行命令（1个）
+
+```
+source /etc/network_turbo && wget https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/auto_dl_install && chmod +x auto_dl_install && ./auto_dl_install
+```
 
 # 安装说明
 1. 自动下载对应开源项目的代码
