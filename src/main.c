@@ -6,6 +6,8 @@
 #include <errno.h>
 #include "models/applio/scripts.h"
 #include "models/fish_speech/scripts.h"
+#include "models/e2-f5-tts/scripts.h"
+#include "models/instantir/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -32,14 +34,16 @@ int main() {
     printf("请选择要使用的模型：\n");
     printf("1. Applio\n");
     printf("2. Fish-Speech\n");
-    printf("请输入选项 (1-2): ");
+    printf("3. E2-F5-TTS\n");
+    printf("4. InstantIR\n");
+    printf("请输入选项 (1-4): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 2) {
+    if (choice < 1 || choice > 4) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -78,6 +82,22 @@ int main() {
                 script_content = FISH_SPEECH_INSTALL;
             } else if (action == 2) {
                 script_content = FISH_SPEECH_START;
+            }
+            break;
+            
+        case 3: // E2-F5-TTS
+            if (action == 1) {
+                script_content = E2_F5_TTS_INSTALL;
+            } else if (action == 2) {
+                script_content = E2_F5_TTS_START;
+            }
+            break;
+            
+        case 4: // InstantIR
+            if (action == 1) {
+                script_content = INSTANTIR_INSTALL;
+            } else if (action == 2) {
+                script_content = INSTANTIR_START;
             }
             break;
     }
