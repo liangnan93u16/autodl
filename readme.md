@@ -7,6 +7,7 @@
 6. AllegroTxt2vid: https://github.com/pinokiofactory/Allegro-txt2vid
 7. OmniGen: https://github.com/VectorSpaceLab/OmniGen
 8. Diamond: https://github.com/eloialonso/diamond
+9. facepoke: https://github.com/peanutcocktail/FacePoke
 
 # 环境要求
 适配网站：https://www.autodl.com/home
