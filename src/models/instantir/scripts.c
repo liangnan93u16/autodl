@@ -17,7 +17,7 @@ const char* INSTANTIR_INSTALL =
     "apt-get install -y portaudio19-dev python3-pyaudio\n"
     "\n"
     "# Configure conda\n"
-    "source $HOME/miniconda3/etc/profile.d/conda.sh || source $HOME/anaconda3/etc/profile.d/conda.sh\n"
+    ". $HOME/miniconda3/etc/profile.d/conda.sh || . $HOME/anaconda3/etc/profile.d/conda.sh\n"
     "\n"
     "# Create and activate conda environment\n"
     "conda create -n instantir python=3.10 -y\n"

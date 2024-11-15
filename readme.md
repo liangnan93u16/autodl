@@ -1,9 +1,12 @@
 # 支持自动安装的开源项目
-- applio：https://github.com/IAHispano/Applio
-- fish-speech：https://github.com/fishaudio/fish-speech
-- E2-F5-TTS : https://huggingface.co/spaces/cocktailpeanut/InstantIR
-- InstantIR : https://github.com/coleam00/bolt.new-any-llm
-- bolt: https://github.com/coleam00/bolt.new-any-llm
+1. applio：https://github.com/IAHispano/Applio
+2. fish-speech：https://github.com/fishaudio/fish-speech
+3. E2-F5-TTS : https://huggingface.co/spaces/cocktailpeanut/InstantIR
+4. InstantIR : https://github.com/coleam00/bolt.new-any-llm
+5. bolt: https://github.com/coleam00/bolt.new-any-llm
+6. AllegroTxt2vid: https://github.com/pinokiofactory/Allegro-txt2vid
+7. OmniGen: https://github.com/VectorSpaceLab/OmniGen
+8. Diamond: https://github.com/eloialonso/diamond
 
 # 环境要求
 适配网站：https://www.autodl.com/home

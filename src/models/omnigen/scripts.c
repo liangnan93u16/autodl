@@ -1,7 +1,7 @@
 #include "scripts.h"
 
-// e2-f5-tts_start.sh 内容
-const char* E2_F5_TTS_START = 
+// omnigen_start.sh 内容
+const char* OMNIGEN_START = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
@@ -24,11 +24,10 @@ const char* E2_F5_TTS_START =
     "fi\n"
     "\n"
     "# 激活 conda 环境\n"
-    "conda activate e2-f5-tts || {\n"
-    "    echo \"Error: Failed to activate conda environment 'e2-f5-tts'\"\n"
+    "conda activate omnigen || {\n"
+    "    echo \"Error: Failed to activate conda environment 'omnigen'\"\n"
     "    exit 1\n"
     "}\n"
-    "\n"
     "\n"
     "# 检测 NVIDIA GPU\n"
     "if command -v nvidia-smi &> /dev/null; then\n"
@@ -37,21 +36,19 @@ const char* E2_F5_TTS_START =
     "    DEVICE=\"cpu\"\n"
     "fi\n"
     "\n"
+    "# 进入工作目录\n"
+    "cd $HOME/omnigen\n"
+    "\n"
     "# 运行应用\n"
-    "cd $HOME/e2-f5-tts/\n"
-    "f5-tts_infer-gradio --port 6006 --host 0.0.0.0";
+    "# GRADIO_SERVER_PORT=6006 python app.py\n"
+    "python app.py --server-port 6006";
 
-// e2-f5-tts_install.sh 内容
-const char* E2_F5_TTS_INSTALL = 
+// omnigen_install.sh 内容
+const char* OMNIGEN_INSTALL = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
     ". /etc/network_turbo || true\n"
-    "\n"
-    "# Ensure script is run with bash\n"
-    "if [ -z \"$BASH_VERSION\" ]; then\n"
-    "    exec bash \"$0\" \"$@\"\n"
-    "fi\n"
     "\n"
     "# Install system dependencies\n"
     "apt-get update\n"
@@ -61,17 +58,17 @@ const char* E2_F5_TTS_INSTALL =
     ". $HOME/miniconda3/etc/profile.d/conda.sh || . $HOME/anaconda3/etc/profile.d/conda.sh\n"
     "\n"
     "# Create and activate conda environment\n"
-    "conda create -n e2-f5-tts python=3.10 -y\n"
-    "conda activate e2-f5-tts\n"
+    "conda create -n omnigen python=3.10 -y\n"
+    "conda activate omnigen\n"
     "\n"
     "# Clone repository and enter directory\n"
-    "git clone https://github.com/SWivid/F5-TTS e2-f5-tts\n"
-    "cd e2-f5-tts\n"
+    "git clone https://github.com/VectorSpaceLab/OmniGen omnigen\n"
+    "cd omnigen\n"
     "\n"
     "# Install PyTorch and dependencies\n"
-    "pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121\n"
+    "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 xformers --index-url https://download.pytorch.org/whl/cu121\n"
     "\n"
     "# Install project and additional dependencies\n"
-    "pip install -e .\n"
-    "";
+    "pip install gradio spaces\n"
+    "pip install -r requirements.txt";
 

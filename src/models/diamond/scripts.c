@@ -1,7 +1,7 @@
 #include "scripts.h"
 
-// fish_speech_install.sh 内容
-const char* FISH_SPEECH_INSTALL = 
+// diamond_install.sh 内容
+const char* DIAMOND_INSTALL = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
@@ -15,26 +15,21 @@ const char* FISH_SPEECH_INSTALL =
     ". $HOME/miniconda3/etc/profile.d/conda.sh || . $HOME/anaconda3/etc/profile.d/conda.sh\n"
     "\n"
     "# Create and activate conda environment\n"
-    "conda create -n fish-speech python=3.10 -y\n"
-    "conda activate fish-speech\n"
+    "conda create -n diamond python=3.10 -y\n"
+    "conda activate diamond\n"
     "\n"
     "# Clone repository and enter directory\n"
-    "git clone https://github.com/fishaudio/fish-speech fish-speech\n"
-    "cd fish-speech\n"
+    "git clone https://github.com/eloialonso/diamond diamond\n"
+    "cd diamond\n"
     "\n"
     "# Install PyTorch and dependencies\n"
-    "pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121\n"
+    "pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1\n"
     "\n"
     "# Install project and additional dependencies\n"
-    "pip install -e .\n"
-    "pip install cachetools livekit livekit-agents\n"
-    "\n"
-    "# Download model checkpoints\n"
-    "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4\n"
-    "";
+    "pip install -r requirements.txt";
 
-// fish_speech_start.sh 内容
-const char* FISH_SPEECH_START = 
+// diamond_start.sh 内容
+const char* DIAMOND_START = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
@@ -57,8 +52,8 @@ const char* FISH_SPEECH_START =
     "fi\n"
     "\n"
     "# 激活 conda 环境\n"
-    "conda activate fish-speech || {\n"
-    "    echo \"Error: Failed to activate conda environment 'fish-speech'\"\n"
+    "conda activate diamond || {\n"
+    "    echo \"Error: Failed to activate conda environment 'diamond'\"\n"
     "    exit 1\n"
     "}\n"
     "\n"
@@ -69,21 +64,11 @@ const char* FISH_SPEECH_START =
     "    DEVICE=\"cpu\"\n"
     "fi\n"
     "\n"
-    "# 确保目录存在\n"
-    "mkdir -p $HOME/fish-speech/tools\n"
-    "\n"
     "# 进入工作目录\n"
-    "cd $HOME/fish-speech/tools\n"
-    "\n"
-    "# 下载 webui2.py\n"
-    "curl -o webui2.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/fish_speech/webui2.py\n"
-    "\n"
-    "# 创建软链接（如果不存在）\n"
-    "if [ ! -L \"checkpoints\" ]; then\n"
-    "    ln -sf ../checkpoints checkpoints\n"
-    "fi\n"
+    "cd $HOME/diamond\n"
     "\n"
     "# 运行应用\n"
-    "python webui2.py --device $DEVICE\n"
-    "";
+    "export PYTORCH_ENABLE_MPS_FALLBACK=1\n"
+    "export PORT=6006\n"
+    "python src/play.py --pretrained";
 

@@ -10,6 +10,9 @@
 #include "models/instantir/scripts.h"
 #include "models/bolt/scripts.h"
 #include "models/allegrotxt2vid/scripts.h"
+#include "models/omnigen/scripts.h"
+#include "models/diamond/scripts.h"
+#include "models/facepoke/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -40,14 +43,17 @@ int main() {
     printf("4. InstantIR\n");
     printf("5. Bolt\n");
     printf("6. AllegroTxt2vid\n");
-    printf("请输入选项 (1-6): ");
+    printf("7. OmniGen\n");
+    printf("8. Diamond\n");
+    printf("9. FacePoke\n");
+    printf("请输入选项 (1-9): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 6) {
+    if (choice < 1 || choice > 9) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -118,6 +124,30 @@ int main() {
                 script_content = ALLEGROTXT2VID_INSTALL;
             } else if (action == 2) {
                 script_content = ALLEGROTXT2VID_START;
+            }
+            break;
+            
+        case 7: // OmniGen
+            if (action == 1) {
+                script_content = OMNIGEN_INSTALL;
+            } else if (action == 2) {
+                script_content = OMNIGEN_START;
+            }
+            break;
+            
+        case 8: // Diamond
+            if (action == 1) {
+                script_content = DIAMOND_INSTALL;
+            } else if (action == 2) {
+                script_content = DIAMOND_START;
+            }
+            break;
+            
+        case 9: // FacePoke
+            if (action == 1) {
+                script_content = FACEPOKE_INSTALL;
+            } else if (action == 2) {
+                script_content = FACEPOKE_START;
             }
             break;
     }
