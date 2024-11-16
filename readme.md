@@ -10,6 +10,7 @@
 9. facepoke: https://github.com/peanutcocktail/FacePoke
 10. InvokeAI: https://github.com/peanutcocktail/FacePoke
 11. DiffusersImageFill
+12. facefusion : https://github.com/facefusion/facefusion
 
 # 环境要求
 适配网站：https://www.autodl.com/home
