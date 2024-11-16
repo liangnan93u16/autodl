@@ -1,0 +1,8 @@
+#ifndef DIFFUSERSIMAGEFILL_SCRIPTS_H
+#define DIFFUSERSIMAGEFILL_SCRIPTS_H
+
+// diffusersimagefill 模块的脚本声明
+extern const char* DIFFUSERSIMAGEFILL_START;
+extern const char* DIFFUSERSIMAGEFILL_INSTALL;
+
+#endif // DIFFUSERSIMAGEFILL_SCRIPTS_H

@@ -31,6 +31,12 @@ const char* FISH_SPEECH_INSTALL =
     "\n"
     "# Download model checkpoints\n"
     "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4\n"
+    "\n"
+    "# 进入工作目录\n"
+    "cd $HOME/fish-speech/tools\n"
+    "\n"
+    "# 下载 webui2.py\n"
+    "curl -o webui2.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/fish_speech/webui2.py\n"
     "";
 
 // fish_speech_start.sh 内容

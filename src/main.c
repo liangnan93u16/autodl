@@ -14,6 +14,7 @@
 #include "models/diamond/scripts.h"
 #include "models/facepoke/scripts.h"
 #include "models/invoke/scripts.h"
+#include "models/diffusersimagefill/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -48,14 +49,15 @@ int main() {
     printf("8. Diamond\n");
     printf("9. FacePoke\n");
     printf("10. InvokeAI\n");
-    printf("请输入选项 (1-10): ");
+    printf("11. DiffusersImageFill（中文界面）\n");
+    printf("请输入选项 (1-11): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 10) {
+    if (choice < 1 || choice > 11) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -158,6 +160,14 @@ int main() {
                 script_content = INVOKE_INSTALL;
             } else if (action == 2) {
                 script_content = INVOKE_START;
+            }
+            break;
+            
+        case 11: // DiffusersImageFill
+            if (action == 1) {
+                script_content = DIFFUSERSIMAGEFILL_INSTALL;
+            } else if (action == 2) {
+                script_content = DIFFUSERSIMAGEFILL_START;
             }
             break;
     }
