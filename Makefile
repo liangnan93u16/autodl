@@ -16,7 +16,8 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/allegrotxt2vid/scripts.c \
        $(MODELS_DIR)/omnigen/scripts.c \
        $(MODELS_DIR)/diamond/scripts.c \
-       $(MODELS_DIR)/facepoke/scripts.c
+       $(MODELS_DIR)/facepoke/scripts.c \
+       $(MODELS_DIR)/invoke/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

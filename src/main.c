@@ -13,6 +13,7 @@
 #include "models/omnigen/scripts.h"
 #include "models/diamond/scripts.h"
 #include "models/facepoke/scripts.h"
+#include "models/invoke/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -46,14 +47,15 @@ int main() {
     printf("7. OmniGen\n");
     printf("8. Diamond\n");
     printf("9. FacePoke\n");
-    printf("请输入选项 (1-9): ");
+    printf("10. InvokeAI\n");
+    printf("请输入选项 (1-10): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 9) {
+    if (choice < 1 || choice > 10) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -148,6 +150,14 @@ int main() {
                 script_content = FACEPOKE_INSTALL;
             } else if (action == 2) {
                 script_content = FACEPOKE_START;
+            }
+            break;
+            
+        case 10: // InvokeAI
+            if (action == 1) {
+                script_content = INVOKE_INSTALL;
+            } else if (action == 2) {
+                script_content = INVOKE_START;
             }
             break;
     }
