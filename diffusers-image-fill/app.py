@@ -12,7 +12,7 @@ import devicetorch
 from PIL import Image
 
 MODELS = {
-    "RealVisXL V5.0 Lightning": "SG161222/RealVisXL_V5.0_Lightning",
+    "RealVisXL V5.0 闪电版": "SG161222/RealVisXL_V5.0_Lightning",
 }
 DEVICE = devicetorch.get(torch)
 pipe = None
@@ -125,33 +125,52 @@ def resize(image, size):
 #with gr.Blocks(css=css, fill_width=True) as demo:
 with gr.Blocks(fill_width=True) as demo:
     with gr.Row():
-        run_button = gr.Button("Generate")
+        run_button = gr.Button("开始生成")
 
     with gr.Row():
         input_image = gr.ImageMask(
             type="pil",
-            label="Input Image",
-#            crop_size=(1024, 1024),
-#            canvas_size=(1024, 1024),
+            label="上传图片（点击上传，然后用鼠标涂抹需要修复的区域）",
             layers=False,
             sources=["upload"],
         )
 
         result = ImageSlider(
             interactive=False,
-            label="Generated Image",
+            label="生成结果预览",
         )
 
     with gr.Row():
       model_selection = gr.Dropdown(
           choices=list(MODELS.keys()),
-          value="RealVisXL V5.0 Lightning",
-          label="Model",
+          value="RealVisXL V5.0 闪电版",
+          label="选择模型",
       )
-      prompt = gr.Textbox(value="high quality", label="Prompt (Don't touch unless you know what you're doing)", visible=False)
-      size = gr.Slider(value=1024, label="Resize", minimum=0, maximum=1024, step=8, visible=False, interactive=True)
-      guidance_scale = gr.Number(value=1.5, label="Guidance Scale", visible=False)
-      steps = gr.Number(value=8, label="Steps", precision=0, visible=False)
+      prompt = gr.Textbox(
+          value="high quality", 
+          label="提示词（除非您了解其工作原理，否则请保持默认值）", 
+          visible=False
+      )
+      size = gr.Slider(
+          value=1024, 
+          label="图片尺寸调整", 
+          minimum=0, 
+          maximum=1024, 
+          step=8, 
+          visible=False, 
+          interactive=True
+      )
+      guidance_scale = gr.Number(
+          value=1.5, 
+          label="生成引导系数", 
+          visible=False
+      )
+      steps = gr.Number(
+          value=8, 
+          label="生成迭代步数", 
+          precision=0, 
+          visible=False
+      )
 
     run_button.click(
         fn=clear_result,
