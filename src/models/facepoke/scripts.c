@@ -14,7 +14,7 @@ const char* FACEPOKE_INSTALL =
     "\n"
     "# Install system dependencies\n"
     "apt-get update\n"
-    "apt-get install -y portaudio19-dev python3-pyaudio\n"
+    "apt-get install -y portaudio19-dev python3-pyaudio ffmpeg\n"
     "\n"
     "# Configure conda\n"
     ". $HOME/miniconda3/etc/profile.d/conda.sh || . $HOME/anaconda3/etc/profile.d/conda.sh\n"

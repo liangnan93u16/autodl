@@ -18,7 +18,8 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/diamond/scripts.c \
        $(MODELS_DIR)/facepoke/scripts.c \
        $(MODELS_DIR)/invoke/scripts.c \
-       $(MODELS_DIR)/diffusersimagefill/scripts.c
+       $(MODELS_DIR)/diffusersimagefill/scripts.c \
+       $(MODELS_DIR)/facefusion/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
