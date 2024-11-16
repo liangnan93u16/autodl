@@ -4,7 +4,6 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <errno.h>
-#include <time.h>
 #include "models/applio/scripts.h"
 #include "models/fish_speech/scripts.h"
 #include "models/e2-f5-tts/scripts.h"
@@ -17,6 +16,7 @@
 #include "models/invoke/scripts.h"
 #include "models/diffusersimagefill/scripts.h"
 #include "models/facefusion/scripts.h"
+#include "models/lorascripts/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -43,7 +43,7 @@ int main() {
     printf("请选择要使用的模型：\n");
     printf("1. Applio（中文界面）\n");
     printf("2. Fish-Speech（中文界面）\n");
-    printf("3. E2-F5-TTS\n");
+    printf("3. E2-F5-TTS（中文界面）\n");
     printf("4. InstantIR\n");
     printf("5. Bolt\n");
     printf("6. AllegroTxt2vid\n");
@@ -53,14 +53,15 @@ int main() {
     printf("10. InvokeAI\n");
     printf("11. DiffusersImageFill（中文界面）\n");
     printf("12. FaceFusion（中文界面）\n");
-    printf("请输入选项 (1-12): ");
+    printf("13. LoRA Scripts\n");
+    printf("请输入选项 (1-13): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 12) {
+    if (choice < 1 || choice > 13) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -181,6 +182,14 @@ int main() {
                 script_content = FACEFUSION_START;
             }
             break;
+            
+        case 13: // LoRA Scripts
+            if (action == 1) {
+                script_content = LORASCRIPTS_INSTALL;
+            } else if (action == 2) {
+                script_content = LORASCRIPTS_START;
+            }
+            break;
     }
     
     char* temp_script = create_temp_script(script_content);
@@ -188,29 +197,8 @@ int main() {
         return 1;
     }
     
-    // 记录开始时间
-    time_t start_time = time(NULL);
-    
     snprintf(command, sizeof(command), "bash '%s'", temp_script);
     int result = system(command);
-    
-    // 计算执行时间
-    time_t end_time = time(NULL);
-    double execution_time = difftime(end_time, start_time);
-    
-    // 打印执行时间
-    int hours = (int)execution_time / 3600;
-    int minutes = ((int)execution_time % 3600) / 60;
-    int seconds = (int)execution_time % 60;
-    
-    printf("\n脚本执行完成！总用时: ");
-    if (hours > 0) {
-        printf("%d小时", hours);
-    }
-    if (minutes > 0) {
-        printf("%d分钟", minutes);
-    }
-    printf("%d秒\n", seconds);
     
     unlink(temp_script);
     

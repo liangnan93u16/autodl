@@ -29,6 +29,7 @@ const char* FISH_SPEECH_INSTALL =
     "pip install -e .\n"
     "pip install cachetools livekit livekit-agents\n"
     "\n"
+    "\n"
     "# Download model checkpoints\n"
     "huggingface-cli download fishaudio/fish-speech-1.4 --local-dir checkpoints/fish-speech-1.4\n"
     "\n"

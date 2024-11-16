@@ -73,6 +73,12 @@ const char* APPLIO_INSTALL =
     "conda create -n applio python=3.10 -y\n"
     "conda activate applio\n"
     "\n"
+    "# Clone repository\n"
+    "cd $HOME\n"
+    "git clone https://github.com/IAHispano/Applio applio\n"
+    "cd applio\n"
+    "git reset --hard 5db5e53ad30cc69007e576d96f85fdd932c9fea8\n"
+    "\n"
     "# Install PyTorch and dependencies\n"
     "pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121\n"
     "\n"
@@ -124,13 +130,5 @@ const char* APPLIO_INSTALL =
     "pip install pypresence\n"
     "pip install beautifulsoup4\n"
     "pip install flask\n"
-    "pip install local-attention\n"
-    "\n"
-    "# Clone repository\n"
-    "cd $HOME\n"
-    "git clone https://github.com/IAHispano/Applio applio\n"
-    "cd applio\n"
-    "git reset --hard 5db5e53ad30cc69007e576d96f85fdd932c9fea8\n"
-    "\n"
-    "";
+    "pip install local-attention";
 

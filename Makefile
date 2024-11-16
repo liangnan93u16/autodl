@@ -19,9 +19,14 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/facepoke/scripts.c \
        $(MODELS_DIR)/invoke/scripts.c \
        $(MODELS_DIR)/diffusersimagefill/scripts.c \
-       $(MODELS_DIR)/facefusion/scripts.c
+       $(MODELS_DIR)/facefusion/scripts.c \
+       $(MODELS_DIR)/lorascripts/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+# 创建必要的目录
+$(shell mkdir -p $(OBJ_DIR)/models/lorascripts)
+$(shell mkdir -p $(OBJ_DIR)/models/facefusion)
 
 all: $(TARGET) package
 

@@ -1,7 +1,7 @@
 #include "scripts.h"
 
-// facepoke_install.sh 内容
-const char* FACEPOKE_INSTALL = 
+// lorascripts_install.sh 内容
+const char* LORASCRIPTS_INSTALL = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
@@ -14,28 +14,29 @@ const char* FACEPOKE_INSTALL =
     "\n"
     "# Install system dependencies\n"
     "apt-get update\n"
-    "apt-get install -y portaudio19-dev python3-pyaudio ffmpeg\n"
+    "apt-get install -y portaudio19-dev python3-pyaudio\n"
     "\n"
     "# Configure conda\n"
     ". $HOME/miniconda3/etc/profile.d/conda.sh || . $HOME/anaconda3/etc/profile.d/conda.sh\n"
     "\n"
     "# Create and activate conda environment\n"
-    "conda create -n FacePoke python=3.10 -y\n"
-    "conda activate FacePoke\n"
+    "conda create -n lora-scripts python=3.10 -y\n"
+    "conda activate lora-scripts\n"
     "\n"
     "# Clone repository and enter directory\n"
-    "git clone https://github.com/peanutcocktail/FacePoke FacePoke\n"
-    "cd FacePoke\n"
+    "cd $HOME\n"
+    "git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts lora-scripts\n"
+    "cd lora-scripts\n"
     "\n"
     "# Install PyTorch and dependencies\n"
-    "# pip install torch==2.4.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121\n"
+    "pip install torch==2.4.0+cu118 torchvision==0.19.0+cu118 --extra-index-url https://download.pytorch.org/whl/cu118\n"
+    "pip install --no-deps xformers==0.0.27.post2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118\n"
     "\n"
-    "# Install project and additional dependencies\n"
-    "pip install -r requirements_base.txt\n"
-    "pip install onnxruntime";
+    "cd $HOME/lora-scripts\n"
+    "pip install --upgrade -r requirements.txt";
 
-// facepoke_start.sh 内容
-const char* FACEPOKE_START = 
+// lorascripts_start.sh 内容
+const char* LORASCRIPTS_START = 
     "#!/bin/bash\n"
     "\n"
     "# Network acceleration\n"
@@ -58,10 +59,8 @@ const char* FACEPOKE_START =
     "fi\n"
     "\n"
     "# 激活 conda 环境\n"
-    "conda activate FacePoke || {\n"
-    "    echo \"Error: Failed to activate conda environment 'FacePoke'\"\n"
-    "    exit 1\n"
-    "}\n"
+    "conda create -n lora-scripts python=3.10 -y\n"
+    "conda activate lora-scripts\n"
     "\n"
     "\n"
     "# 检测 NVIDIA GPU\n"
@@ -72,6 +71,9 @@ const char* FACEPOKE_START =
     "fi\n"
     "\n"
     "# 运行应用\n"
-    "cd $HOME/FacePoke/\n"
-    "python app.py --port 6006";
+    "cd $HOME/lora-scripts\n"
+    "export HF_HOME=huggingface\n"
+    "export PYTHONUTF8=1\n"
+    "\n"
+    "python gui.py \"$@\" --port 6006";
 
