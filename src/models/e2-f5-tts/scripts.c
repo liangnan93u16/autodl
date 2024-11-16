@@ -73,5 +73,10 @@ const char* E2_F5_TTS_INSTALL =
     "\n"
     "# Install project and additional dependencies\n"
     "pip install -e .\n"
+    "\n"
+    "# 进入工作目录\n"
+    "cd $HOME/e2-f5-tts/src/f5_tts/infer\n"
+    "\n"
+    "curl -o infer_gradio.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/e2-f5-tts/infer_gradio.py\n"
     "";
 

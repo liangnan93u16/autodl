@@ -37,17 +37,6 @@ const char* FISH_SPEECH_INSTALL =
     "\n"
     "# 下载 webui2.py\n"
     "curl -o webui2.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/fish_speech/webui2.py\n"
-    "\n"
-    "# 在脚本开始处添加\n"
-    "start_time=$(date +%s)\n"
-    "\n"
-    "# 在脚本结束处添加\n"
-    "end_time=$(date +%s)\n"
-    "execution_time=$((end_time - start_time))\n"
-    "hours=$((execution_time / 3600))\n"
-    "minutes=$(( (execution_time % 3600) / 60 ))\n"
-    "seconds=$((execution_time % 60))\n"
-    "echo \"安装完成！总用时: ${hours}小时 ${minutes}分钟 ${seconds}秒\"\n"
     "";
 
 // fish_speech_start.sh 内容

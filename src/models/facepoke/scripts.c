@@ -34,13 +34,6 @@ const char* FACEPOKE_INSTALL =
     "pip install -r requirements_base.txt\n"
     "pip install onnxruntime\n"
     "\n"
-    "# 在脚本结束处添加\n"
-    "end_time=$(date +%s)\n"
-    "execution_time=$((end_time - start_time))\n"
-    "hours=$((execution_time / 3600))\n"
-    "minutes=$(( (execution_time % 3600) / 60 ))\n"
-    "seconds=$((execution_time % 60))\n"
-    "echo \"安装完成！总用时: ${hours}小时 ${minutes}分钟 ${seconds}秒\"\n"
     "";
 
 // facepoke_start.sh 内容
