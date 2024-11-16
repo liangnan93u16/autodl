@@ -40,8 +40,8 @@ int main() {
     
     printf("注意：仅限于学术用途，不承诺稳定性保证\n\n");
     printf("请选择要使用的模型：\n");
-    printf("1. Applio\n");
-    printf("2. Fish-Speech\n");
+    printf("1. Applio（中文界面）\n");
+    printf("2. Fish-Speech（中文界面）\n");
     printf("3. E2-F5-TTS\n");
     printf("4. InstantIR\n");
     printf("5. Bolt\n");
