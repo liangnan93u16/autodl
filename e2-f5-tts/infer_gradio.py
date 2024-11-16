@@ -289,7 +289,7 @@ with gr.Blocks() as app_multistyle:
         )
 
     gr.Markdown(
-        "为每种语音风格上传不同的音频片段。第一种语音风格是必需的。您可以通过点击"添加语音类型"按钮添加更多语音风格。"
+        "为每种语音风格上传不同的音频片段。第一种语音风格是必需的。您可以通过点击"添加语音类型"按钮添加更多语音风格。",
     )
 
     # Regular speech type (mandatory)

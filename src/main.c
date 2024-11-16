@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <time.h>
 #include "models/applio/scripts.h"
 #include "models/fish_speech/scripts.h"
 #include "models/e2-f5-tts/scripts.h"
@@ -187,8 +188,29 @@ int main() {
         return 1;
     }
     
+    // 记录开始时间
+    time_t start_time = time(NULL);
+    
     snprintf(command, sizeof(command), "bash '%s'", temp_script);
     int result = system(command);
+    
+    // 计算执行时间
+    time_t end_time = time(NULL);
+    double execution_time = difftime(end_time, start_time);
+    
+    // 打印执行时间
+    int hours = (int)execution_time / 3600;
+    int minutes = ((int)execution_time % 3600) / 60;
+    int seconds = (int)execution_time % 60;
+    
+    printf("\n脚本执行完成！总用时: ");
+    if (hours > 0) {
+        printf("%d小时", hours);
+    }
+    if (minutes > 0) {
+        printf("%d分钟", minutes);
+    }
+    printf("%d秒\n", seconds);
     
     unlink(temp_script);
     
