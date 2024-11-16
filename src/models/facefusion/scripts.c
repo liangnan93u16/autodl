@@ -80,5 +80,9 @@ const char* FACEFUSION_INSTALL =
     "\n"
     "pip install tensorrt==10.5.0 --extra-index-url https://pypi.nvidia.com\n"
     "\n"
-    "python install.py --onnxruntime cuda";
+    "python install.py --onnxruntime cuda\n"
+    "\n"
+    "cd $HOME/facefusion/facefusion\n"
+    "curl -o wording.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/facefusion/facefusion/wording.py\n"
+    "";
 

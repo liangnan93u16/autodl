@@ -51,7 +51,7 @@ int main() {
     printf("9. FacePoke\n");
     printf("10. InvokeAI\n");
     printf("11. DiffusersImageFill（中文界面）\n");
-    printf("12. FaceFusion\n");
+    printf("12. FaceFusion（中文界面）\n");
     printf("请输入选项 (1-12): ");
     
     if (scanf("%d", &choice) != 1) {
