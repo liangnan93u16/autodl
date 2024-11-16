@@ -32,6 +32,8 @@ const char* INSTANTIR_INSTALL =
     "\n"
     "# Install project and additional dependencies\n"
     "pip install -r requirements.txt\n"
+    "\n"
+    "curl -o app.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/instantir/app.py\n"
     "";
 
 // instantir_start.sh 内容
