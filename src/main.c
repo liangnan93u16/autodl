@@ -47,7 +47,7 @@ int main() {
     printf("2. Fish-Speech（中文界面）\n");
     printf("3. E2-F5-TTS（中文界面）\n");
     printf("4. InstantIR（汉化）\n");
-    printf("5. Bolt\n");
+    printf("5. Bolt（汉化）\n");
     printf("6. AllegroTxt2vid\n");
     printf("7. OmniGen\n");
     printf("8. Diamond\n");
