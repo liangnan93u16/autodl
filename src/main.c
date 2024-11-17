@@ -17,6 +17,8 @@
 #include "models/diffusersimagefill/scripts.h"
 #include "models/facefusion/scripts.h"
 #include "models/lorascripts/scripts.h"
+#include "models/manim/scripts.h"
+#include "models/parsexfrontend/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -44,7 +46,7 @@ int main() {
     printf("1. Applio（中文界面）\n");
     printf("2. Fish-Speech（中文界面）\n");
     printf("3. E2-F5-TTS（中文界面）\n");
-    printf("4. InstantIR\n");
+    printf("4. InstantIR（汉化）\n");
     printf("5. Bolt\n");
     printf("6. AllegroTxt2vid\n");
     printf("7. OmniGen\n");
@@ -54,14 +56,16 @@ int main() {
     printf("11. DiffusersImageFill（中文界面）\n");
     printf("12. FaceFusion（中文界面）\n");
     printf("13. LoRA Scripts\n");
-    printf("请输入选项 (1-13): ");
+    printf("14. Manim（数学动画）\n");
+    printf("15. ParseX Frontend（中文界面）\n");
+    printf("请输入选项 (1-15): ");
     
     if (scanf("%d", &choice) != 1) {
         printf("输入无效\n");
         return 0;
     }
     
-    if (choice < 1 || choice > 13) {
+    if (choice < 1 || choice > 15) {
         printf("无效的模型选项\n");
         return 0;
     }
@@ -188,6 +192,22 @@ int main() {
                 script_content = LORASCRIPTS_INSTALL;
             } else if (action == 2) {
                 script_content = LORASCRIPTS_START;
+            }
+            break;
+            
+        case 14: // Manim
+            if (action == 1) {
+                script_content = MANIM_INSTALL;
+            } else if (action == 2) {
+                script_content = MANIM_START;
+            }
+            break;
+            
+        case 15: // ParseX Frontend
+            if (action == 1) {
+                script_content = PARSEXFRONTEND_INSTALL;
+            } else if (action == 2) {
+                script_content = PARSEXFRONTEND_START;
             }
             break;
     }

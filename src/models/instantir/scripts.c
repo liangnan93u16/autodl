@@ -13,13 +13,14 @@ const char* INSTANTIR_INSTALL =
     "fi\n"
     "\n"
     "# Install system dependencies\n"
-    "apt-get update\n"
-    "apt-get install -y portaudio19-dev python3-pyaudio\n"
+    "apt update\n"
+    "apt install -y portaudio19-dev python3-pyaudio\n"
     "\n"
     "# Configure conda\n"
     ". $HOME/miniconda3/etc/profile.d/conda.sh || . $HOME/anaconda3/etc/profile.d/conda.sh\n"
     "\n"
     "# Create and activate conda environment\n"
+    "conda clean --all -y  # 清理所有缓存\n"
     "conda create -n instantir python=3.10 -y\n"
     "conda activate instantir\n"
     "\n"
@@ -33,6 +34,7 @@ const char* INSTANTIR_INSTALL =
     "# Install project and additional dependencies\n"
     "pip install -r requirements.txt\n"
     "\n"
+    "cd $HOME/instantir/gradio_demo\n"
     "curl -o app.py https://raw.githubusercontent.com/liangnan93u16/autodl/refs/heads/main/instantir/app.py\n"
     "";
 
@@ -74,5 +76,6 @@ const char* INSTANTIR_START =
     "\n"
     "# 运行应用\n"
     "cd $HOME/instantir/gradio_demo\n"
-    "python app.py --port 6006";
+    "export GRADIO_SERVER_PORT=6006\n"
+    "python app.py";
 
