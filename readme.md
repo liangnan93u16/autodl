@@ -11,6 +11,9 @@
 10. InvokeAI: https://github.com/peanutcocktail/FacePoke
 11. DiffusersImageFill
 12. facefusion : https://github.com/facefusion/facefusion
+13. LoRA Scripts: https://github.com/Akegarasu/lora-scripts
+14. Manim（数学动画）
+15. ParseX Frontend（中文界面）: https://github.com/intsig-textin/parsex-frontend.git
 
 # 环境要求
 适配网站：https://www.autodl.com/home
