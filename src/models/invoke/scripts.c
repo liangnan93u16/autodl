@@ -27,7 +27,7 @@ const char* INVOKE_INSTALL =
     "# Clone repository and enter directory\n"
     "cd $HOME\n"
     "rm -rf InvokeAI\n"
-    "git clone https://github.com/peanutcocktail/FacePoke InvokeAI\n"
+    "git clone https://github.com/invoke-ai/InvokeAI InvokeAI\n"
     "cd InvokeAI\n"
     "\n"
     "# Install PyTorch and dependencies\n"

@@ -17,8 +17,7 @@
 #include "models/diffusersimagefill/scripts.h"
 #include "models/facefusion/scripts.h"
 #include "models/lorascripts/scripts.h"
-#include "models/manim/scripts.h"
-#include "models/parsexfrontend/scripts.h"
+#include "models/logocreator/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -59,11 +58,11 @@ int main(int argc, char *argv[]) {
         // 原有的交互式模式
         printf("注意：仅限于学术用途，不承诺稳定性保证\n\n");
         printf("请选择要使用的模型：\n");
-        printf("1. Applio（中文界面）\n");
-        printf("2. Fish-Speech（中文界面）\n");
-        printf("3. E2-F5-TTS（中文界面）\n");
-        printf("4. InstantIR（汉化）\n");
-        printf("5. Bolt（汉化）\n");
+        printf("1. Applio\n");
+        printf("2. Fish-Speech\n");
+        printf("3. E2-F5-TTS\n");
+        printf("4. InstantIR\n");
+        printf("5. Bolt\n");
         printf("6. AllegroTxt2vid\n");
         printf("7. OmniGen\n");
         printf("8. Diamond\n");
@@ -71,19 +70,18 @@ int main(int argc, char *argv[]) {
         printf("10. InvokeAI\n");
         printf("11. DiffusersImageFill（中文界面）\n");
         printf("12. FaceFusion（中文界面）\n");
-        printf("13. LoRA Scripts\n");
-        printf("14. Manim（数学动画）\n");
-        printf("15. ParseX Frontend（中文界面）\n");
-        printf("请输入选项 (1-15): ");
+        printf("13. LoraScripts（中文界面）\n");
+        printf("14. LogoCreator（AI Logo生成器）\n");
+        printf("请输入选项 (1-14): ");
         
         if (scanf("%d", &choice) != 1) {
             printf("输入无效\n");
-            return 1;
+            return 0;
         }
         
-        if (choice < 1 || choice > 15) {
+        if (choice < 1 || choice > 14) {
             printf("无效的模型选项\n");
-            return 1;
+            return 0;
         }
         
         while (getchar() != '\n');
@@ -104,7 +102,7 @@ int main(int argc, char *argv[]) {
         }
     } else {
         printf("用法: %s [模型选项 操作选项]\n", argv[0]);
-        printf("模型选项: 1-15\n");
+        printf("模型选项: 1-14\n");
         printf("操作选项: 1-安装, 2-启动服务\n");
         return 1;
     }
@@ -209,7 +207,7 @@ int main(int argc, char *argv[]) {
             }
             break;
             
-        case 13: // LoRA Scripts
+        case 13: // LoraScripts
             if (action == 1) {
                 script_content = LORASCRIPTS_INSTALL;
             } else if (action == 2) {
@@ -217,19 +215,11 @@ int main(int argc, char *argv[]) {
             }
             break;
             
-        case 14: // Manim
+        case 14: // LogoCreator
             if (action == 1) {
-                script_content = MANIM_INSTALL;
+                script_content = LOGOCREATOR_INSTALL;
             } else if (action == 2) {
-                script_content = MANIM_START;
-            }
-            break;
-            
-        case 15: // ParseX Frontend
-            if (action == 1) {
-                script_content = PARSEXFRONTEND_INSTALL;
-            } else if (action == 2) {
-                script_content = PARSEXFRONTEND_START;
+                script_content = LOGOCREATOR_START;
             }
             break;
     }

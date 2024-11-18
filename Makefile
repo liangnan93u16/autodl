@@ -21,15 +21,9 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/diffusersimagefill/scripts.c \
        $(MODELS_DIR)/facefusion/scripts.c \
        $(MODELS_DIR)/lorascripts/scripts.c \
-       $(MODELS_DIR)/manim/scripts.c \
-       $(MODELS_DIR)/parsexfrontend/scripts.c
+       $(MODELS_DIR)/logocreator/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
-# 创建必要的目录
-$(shell mkdir -p $(OBJ_DIR)/models/lorascripts)
-$(shell mkdir -p $(OBJ_DIR)/models/facefusion)
-$(shell mkdir -p $(OBJ_DIR)/models/parsexfrontend)
 
 all: $(TARGET) package
 
