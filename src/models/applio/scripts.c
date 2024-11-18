@@ -73,6 +73,7 @@ const char* APPLIO_INSTALL =
     "\n"
     "# Clone repository\n"
     "cd $HOME\n"
+    "rm -rf applio\n"
     "git clone https://github.com/IAHispano/Applio applio\n"
     "cd applio\n"
     "git reset --hard 5db5e53ad30cc69007e576d96f85fdd932c9fea8\n"

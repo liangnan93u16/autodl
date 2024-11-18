@@ -26,6 +26,7 @@ const char* LORASCRIPTS_INSTALL =
     "\n"
     "# Clone repository and enter directory\n"
     "cd $HOME\n"
+    "rm -rf lora-scripts\n"
     "git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts lora-scripts\n"
     "cd lora-scripts\n"
     "\n"

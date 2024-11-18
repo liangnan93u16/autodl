@@ -20,6 +20,8 @@ const char* DIAMOND_INSTALL =
     "conda activate diamond\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf diamond\n"
     "git clone https://github.com/eloialonso/diamond diamond\n"
     "cd diamond\n"
     "\n"

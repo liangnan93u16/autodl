@@ -71,6 +71,7 @@ const char* PARSEXFRONTEND_INSTALL =
     "\n"
     "# Clone repository and enter directory\n"
     "cd $HOME\n"
+    "rm -rf parsex-frontend\n"
     "git clone https://github.com/intsig-textin/parsex-frontend.git parsex-frontend\n"
     "cd parsex-frontend\n"
     "\n"

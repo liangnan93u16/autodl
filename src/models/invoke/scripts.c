@@ -25,6 +25,8 @@ const char* INVOKE_INSTALL =
     "conda activate InvokeAI\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf InvokeAI\n"
     "git clone https://github.com/peanutcocktail/FacePoke InvokeAI\n"
     "cd InvokeAI\n"
     "\n"

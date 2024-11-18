@@ -20,6 +20,8 @@ const char* FISH_SPEECH_INSTALL =
     "conda activate fish-speech\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf fish-speech\n"
     "git clone https://github.com/fishaudio/fish-speech fish-speech\n"
     "cd fish-speech\n"
     "\n"

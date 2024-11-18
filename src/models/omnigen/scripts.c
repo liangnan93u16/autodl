@@ -63,6 +63,8 @@ const char* OMNIGEN_INSTALL =
     "conda activate omnigen\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf omnigen\n"
     "git clone https://github.com/VectorSpaceLab/OmniGen omnigen\n"
     "cd omnigen\n"
     "\n"

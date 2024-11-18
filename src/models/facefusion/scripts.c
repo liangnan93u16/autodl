@@ -76,6 +76,7 @@ const char* FACEFUSION_INSTALL =
     "\n"
     "# Clone repository and enter directory\n"
     "cd $HOME\n"
+    "rm -rf facefusion\n"
     "git clone https://github.com/facefusion/facefusion --branch 3.0.1 --single-branch facefusion\n"
     "cd facefusion\n"
     "\n"

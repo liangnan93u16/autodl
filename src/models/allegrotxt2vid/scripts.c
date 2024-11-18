@@ -20,6 +20,8 @@ const char* ALLEGROTXT2VID_INSTALL =
     "\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf Allegro-txt2vid\n"
     "git clone https://github.com/pinokiofactory/Allegro-txt2vid Allegro-txt2vid\n"
     "cd Allegro-txt2vid\n"
     "\n"

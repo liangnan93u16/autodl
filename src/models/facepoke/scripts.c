@@ -25,6 +25,8 @@ const char* FACEPOKE_INSTALL =
     "conda activate FacePoke\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf FacePoke\n"
     "git clone https://github.com/peanutcocktail/FacePoke FacePoke\n"
     "cd FacePoke\n"
     "\n"

@@ -25,6 +25,8 @@ const char* INSTANTIR_INSTALL =
     "conda activate instantir\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf instantir\n"
     "git clone https://huggingface.co/spaces/cocktailpeanut/InstantIR instantir\n"
     "cd instantir\n"
     "\n"

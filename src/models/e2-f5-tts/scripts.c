@@ -66,6 +66,8 @@ const char* E2_F5_TTS_INSTALL =
     "conda activate e2-f5-tts\n"
     "\n"
     "# Clone repository and enter directory\n"
+    "cd $HOME\n"
+    "rm -rf e2-f5-tts\n"
     "git clone https://github.com/SWivid/F5-TTS e2-f5-tts\n"
     "# 进入工作目录\n"
     "cd $HOME/e2-f5-tts/src/f5_tts/infer\n"
