@@ -38,53 +38,75 @@ char* create_temp_script(const char* content) {
     return temp_path;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     int choice, action;
     
-    printf("注意：仅限于学术用途，不承诺稳定性保证\n\n");
-    printf("请选择要使用的模型：\n");
-    printf("1. Applio（中文界面）\n");
-    printf("2. Fish-Speech（中文界面）\n");
-    printf("3. E2-F5-TTS（中文界面）\n");
-    printf("4. InstantIR（汉化）\n");
-    printf("5. Bolt（汉化）\n");
-    printf("6. AllegroTxt2vid\n");
-    printf("7. OmniGen\n");
-    printf("8. Diamond\n");
-    printf("9. FacePoke\n");
-    printf("10. InvokeAI\n");
-    printf("11. DiffusersImageFill（中文界面）\n");
-    printf("12. FaceFusion（中文界面）\n");
-    printf("13. LoRA Scripts\n");
-    printf("14. Manim（数学动画）\n");
-    printf("15. ParseX Frontend（中文界面）\n");
-    printf("请输入选项 (1-15): ");
-    
-    if (scanf("%d", &choice) != 1) {
-        printf("输入无效\n");
-        return 0;
-    }
-    
-    if (choice < 1 || choice > 15) {
-        printf("无效的模型选项\n");
-        return 0;
-    }
-    
-    while (getchar() != '\n');
-    
-    printf("\n请选择操作：\n");
-    printf("1. 安装\n");
-    printf("2. 启动服务\n");
-    printf("请输入选项 (1-2): ");
-    
-    if (scanf("%d", &action) != 1) {
-        printf("输入无效\n");
-        return 0;
-    }
-    
-    if (action < 1 || action > 2) {
-        printf("无效的操作选项\n");
-        return 0;
+    // 处理命令行参数
+    if (argc == 3) {
+        choice = atoi(argv[1]);
+        action = atoi(argv[2]);
+        
+        // 验证参数范围
+        if (choice < 1 || choice > 15) {
+            printf("无效的模型选项: %d\n", choice);
+            return 1;
+        }
+        if (action < 1 || action > 2) {
+            printf("无效的操作选项: %d\n", action);
+            return 1;
+        }
+    } else if (argc == 1) {
+        // 原有的交互式模式
+        printf("注意：仅限于学术用途，不承诺稳定性保证\n\n");
+        printf("请选择要使用的模型：\n");
+        printf("1. Applio（中文界面）\n");
+        printf("2. Fish-Speech（中文界面）\n");
+        printf("3. E2-F5-TTS（中文界面）\n");
+        printf("4. InstantIR（汉化）\n");
+        printf("5. Bolt（汉化）\n");
+        printf("6. AllegroTxt2vid\n");
+        printf("7. OmniGen\n");
+        printf("8. Diamond\n");
+        printf("9. FacePoke\n");
+        printf("10. InvokeAI\n");
+        printf("11. DiffusersImageFill（中文界面）\n");
+        printf("12. FaceFusion（中文界面）\n");
+        printf("13. LoRA Scripts\n");
+        printf("14. Manim（数学动画）\n");
+        printf("15. ParseX Frontend（中文界面）\n");
+        printf("请输入选项 (1-15): ");
+        
+        if (scanf("%d", &choice) != 1) {
+            printf("输入无效\n");
+            return 1;
+        }
+        
+        if (choice < 1 || choice > 15) {
+            printf("无效的模型选项\n");
+            return 1;
+        }
+        
+        while (getchar() != '\n');
+        
+        printf("\n请选择操作：\n");
+        printf("1. 安装\n");
+        printf("2. 启动服务\n");
+        printf("请输入选项 (1-2): ");
+        
+        if (scanf("%d", &action) != 1) {
+            printf("输入无效\n");
+            return 1;
+        }
+        
+        if (action < 1 || action > 2) {
+            printf("无效的操作选项\n");
+            return 1;
+        }
+    } else {
+        printf("用法: %s [模型选项 操作选项]\n", argv[0]);
+        printf("模型选项: 1-15\n");
+        printf("操作选项: 1-安装, 2-启动服务\n");
+        return 1;
     }
     
     char command[1024];
