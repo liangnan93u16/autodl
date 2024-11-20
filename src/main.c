@@ -19,6 +19,7 @@
 #include "models/lorascripts/scripts.h"
 #include "models/logocreator/scripts.h"
 #include "models/fay/scripts.h"
+#include "models/docling/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -47,7 +48,7 @@ int main(int argc, char *argv[]) {
         action = atoi(argv[2]);
         
         // 验证参数范围
-        if (choice < 1 || choice > 15) {
+        if (choice < 1 || choice > 16) {
             printf("无效的模型选项: %d\n", choice);
             return 1;
         }
@@ -74,14 +75,15 @@ int main(int argc, char *argv[]) {
         printf("13. LoraScripts（中文界面）\n");
         printf("14. LogoCreator（AI Logo生成器）\n");
         printf("15. Fay（虚拟主播）\n");
-        printf("请输入选项 (1-15): ");
+        printf("16. DocLing（文档处理）\n");
+        printf("请输入选项 (1-16): ");
         
         if (scanf("%d", &choice) != 1) {
             printf("输入无效\n");
             return 0;
         }
         
-        if (choice < 1 || choice > 15) {
+        if (choice < 1 || choice > 16) {
             printf("无效的模型选项\n");
             return 0;
         }
@@ -104,7 +106,7 @@ int main(int argc, char *argv[]) {
         }
     } else {
         printf("用法: %s [模型选项 操作选项]\n", argv[0]);
-        printf("模型选项: 1-15\n");
+        printf("模型选项: 1-16\n");
         printf("操作选项: 1-安装, 2-启动服务\n");
         return 1;
     }
@@ -230,6 +232,14 @@ int main(int argc, char *argv[]) {
                 script_content = FAY_INSTALL;
             } else if (action == 2) {
                 script_content = FAY_START;
+            }
+            break;
+            
+        case 16: // DocLing
+            if (action == 1) {
+                script_content = DOCLING_INSTALL;
+            } else if (action == 2) {
+                script_content = DOCLING_START;
             }
             break;
     }
