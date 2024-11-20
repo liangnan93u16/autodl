@@ -12,9 +12,12 @@
 11. DiffusersImageFill
 12. facefusion : https://github.com/facefusion/facefusion
 13. LoRA Scripts: https://github.com/Akegarasu/lora-scripts
-14. Manim（数学动画）
-15. ParseX Frontend（中文界面）: https://github.com/intsig-textin/parsex-frontend
-16. LogoCreator: https://github.com/Nutlope/logocreator
+14. LogoCreator: https://github.com/Nutlope/logocreator
+15. Fay（虚拟主播）:https://github.com/xszyou/Fay
+16. Manim（数学动画）
+17. ParseX Frontend（中文界面）: https://github.com/intsig-textin/parsex-frontend
+18. surya:https://github.com/VikParuchuri/surya
+19. docling:https://github.com/liangnan93u16/docling_ui.git
 
 # 环境要求
 适配网站：https://www.autodl.com/home

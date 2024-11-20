@@ -29,7 +29,9 @@ const char* DOCLING_INSTALL =
     "git clone https://github.com/liangnan93u16/docling_ui.git $APP\n"
     "cd $APP\n"
     "\n"
-    "pip install -r requirements.txt";
+    "pip install -r requirements.txt\n"
+    "\n"
+    "";
 
 // docling_start.sh 内容
 const char* DOCLING_START = 

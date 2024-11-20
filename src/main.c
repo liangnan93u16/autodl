@@ -19,7 +19,10 @@
 #include "models/lorascripts/scripts.h"
 #include "models/logocreator/scripts.h"
 #include "models/fay/scripts.h"
+#include "models/surya/scripts.h"
 #include "models/docling/scripts.h"
+#include "models/manim/scripts.h"
+#include "models/parsexfrontend/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -48,7 +51,7 @@ int main(int argc, char *argv[]) {
         action = atoi(argv[2]);
         
         // 验证参数范围
-        if (choice < 1 || choice > 16) {
+        if (choice < 1 || choice > 19) {
             printf("无效的模型选项: %d\n", choice);
             return 1;
         }
@@ -75,15 +78,18 @@ int main(int argc, char *argv[]) {
         printf("13. LoraScripts（中文界面）\n");
         printf("14. LogoCreator（AI Logo生成器）\n");
         printf("15. Fay（虚拟主播）\n");
-        printf("16. DocLing（文档处理）\n");
-        printf("请输入选项 (1-16): ");
+        printf("16. Surya（OCR文字识别）\n");
+        printf("17. Docling（文档处理）\n");
+        printf("18. Manim（数学动画制作）\n");
+        printf("19. ParseX Frontend（文档解析前端）\n");
+        printf("请输入选项 (1-19): ");
         
         if (scanf("%d", &choice) != 1) {
             printf("输入无效\n");
             return 0;
         }
         
-        if (choice < 1 || choice > 16) {
+        if (choice < 1 || choice > 19) {
             printf("无效的模型选项\n");
             return 0;
         }
@@ -106,7 +112,7 @@ int main(int argc, char *argv[]) {
         }
     } else {
         printf("用法: %s [模型选项 操作选项]\n", argv[0]);
-        printf("模型选项: 1-16\n");
+        printf("模型选项: 1-19\n");
         printf("操作选项: 1-安装, 2-启动服务\n");
         return 1;
     }
@@ -235,11 +241,35 @@ int main(int argc, char *argv[]) {
             }
             break;
             
-        case 16: // DocLing
+        case 16: // Surya
+            if (action == 1) {
+                script_content = SURYA_INSTALL;
+            } else if (action == 2) {
+                script_content = SURYA_START;
+            }
+            break;
+            
+        case 17: // Docling
             if (action == 1) {
                 script_content = DOCLING_INSTALL;
             } else if (action == 2) {
                 script_content = DOCLING_START;
+            }
+            break;
+            
+        case 18: // Manim
+            if (action == 1) {
+                script_content = MANIM_INSTALL;
+            } else if (action == 2) {
+                script_content = MANIM_START;
+            }
+            break;
+            
+        case 19: // ParseX Frontend
+            if (action == 1) {
+                script_content = PARSEXFRONTEND_INSTALL;
+            } else if (action == 2) {
+                script_content = PARSEXFRONTEND_START;
             }
             break;
     }

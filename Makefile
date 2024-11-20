@@ -23,7 +23,10 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/lorascripts/scripts.c \
        $(MODELS_DIR)/logocreator/scripts.c \
        $(MODELS_DIR)/fay/scripts.c \
-       $(MODELS_DIR)/docling/scripts.c
+       $(MODELS_DIR)/surya/scripts.c \
+       $(MODELS_DIR)/docling/scripts.c \
+       $(MODELS_DIR)/manim/scripts.c \
+       $(MODELS_DIR)/parsexfrontend/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
