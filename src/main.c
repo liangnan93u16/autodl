@@ -18,6 +18,7 @@
 #include "models/facefusion/scripts.h"
 #include "models/lorascripts/scripts.h"
 #include "models/logocreator/scripts.h"
+#include "models/fay/scripts.h"
 
 // 创建临时脚本文件
 char* create_temp_script(const char* content) {
@@ -72,14 +73,15 @@ int main(int argc, char *argv[]) {
         printf("12. FaceFusion（中文界面）\n");
         printf("13. LoraScripts（中文界面）\n");
         printf("14. LogoCreator（AI Logo生成器）\n");
-        printf("请输入选项 (1-14): ");
+        printf("15. Fay（虚拟主播）\n");
+        printf("请输入选项 (1-15): ");
         
         if (scanf("%d", &choice) != 1) {
             printf("输入无效\n");
             return 0;
         }
         
-        if (choice < 1 || choice > 14) {
+        if (choice < 1 || choice > 15) {
             printf("无效的模型选项\n");
             return 0;
         }
@@ -102,7 +104,7 @@ int main(int argc, char *argv[]) {
         }
     } else {
         printf("用法: %s [模型选项 操作选项]\n", argv[0]);
-        printf("模型选项: 1-14\n");
+        printf("模型选项: 1-15\n");
         printf("操作选项: 1-安装, 2-启动服务\n");
         return 1;
     }
@@ -220,6 +222,14 @@ int main(int argc, char *argv[]) {
                 script_content = LOGOCREATOR_INSTALL;
             } else if (action == 2) {
                 script_content = LOGOCREATOR_START;
+            }
+            break;
+            
+        case 15: // Fay
+            if (action == 1) {
+                script_content = FAY_INSTALL;
+            } else if (action == 2) {
+                script_content = FAY_START;
             }
             break;
     }

@@ -76,5 +76,6 @@ const char* FACEPOKE_START =
     "\n"
     "# 运行应用\n"
     "cd $HOME/FacePoke/\n"
-    "python app.py --port 6006";
+    "python app.py\n"
+    "";
 

@@ -21,7 +21,8 @@ SRCS = $(SRC_DIR)/main.c \
        $(MODELS_DIR)/diffusersimagefill/scripts.c \
        $(MODELS_DIR)/facefusion/scripts.c \
        $(MODELS_DIR)/lorascripts/scripts.c \
-       $(MODELS_DIR)/logocreator/scripts.c
+       $(MODELS_DIR)/logocreator/scripts.c \
+       $(MODELS_DIR)/fay/scripts.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
